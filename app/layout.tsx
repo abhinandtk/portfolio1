@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://abhinandtk.com',
+    url: 'https://portfolioabhi-nine.vercel.app',
     title: 'Abhinand TK | Full-Stack Developer & Django Expert',
     description: 'Expert Full-Stack Development specializing in Django, React, and Next.js. View my projects and experience.',
     siteName: 'Abhinand TK Portfolio',

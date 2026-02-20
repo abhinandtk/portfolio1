@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Selected Works | Abhinand TK',
     description: 'Explore my production-level projects, from healthcare booking platforms to sports management systems.',
-    url: 'https://abhinandtk.com/works',
+    url: 'https://portfolioabhi-nine.vercel.app/works',
   },
 }
 

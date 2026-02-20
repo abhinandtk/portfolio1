@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 }
 
 export default async function sitemap() {
-  const baseUrl = 'https://abhinandtk.com'
+  const baseUrl = 'https://portfolioabhi-nine.vercel.app'
 
   const routes = ['', '/works'].map((route) => ({
     url: `${baseUrl}${route}`,
