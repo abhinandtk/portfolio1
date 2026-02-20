@@ -17,7 +17,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section id="top" className="relative min-h-screen flex flex-col justify-end pt-32 pb-20 md:pb-28 overflow-hidden">
+    <section id="top" className="relative min-h-screen flex flex-col justify-end pt-32 pb-32 md:pb-28 overflow-hidden">
       {/* Background image */}
       <div ref={bgRef} className="absolute inset-0 scale-110 will-change-transform">
         <Image
@@ -93,7 +93,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 opacity-30">
         <span className="text-[10px] tracking-[0.3em] uppercase">Scroll</span>
         <div className="w-px h-10 bg-ivory/50 animate-pulse" />
       </div>
