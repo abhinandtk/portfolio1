@@ -14,6 +14,7 @@ const projects = [
     tags: ['Django', 'Zoom SDK', 'Stripe', 'MySQL'],
     image: '/images/healers_on_demand.png',
     color: '#000000',
+    link: 'https://www.healersondemand.com/',
   },
   {
     id: '02',
@@ -22,6 +23,7 @@ const projects = [
     tags: ['Django', 'DRF', 'RBAC', 'MySQL'],
     image: '/images/trusted.png',
     color: '#000000',
+    link: 'https://trustedprofessionalcentre.ca/',
   },
   {
     id: '03',
@@ -30,6 +32,7 @@ const projects = [
     tags: ['Django', 'DRF', 'PostgreSQL', 'RBAC'],
     image: '/images/joystick.png',
     color: '#000000',
+    link: 'https://www.joysticklearning.co.uk/',
   },
   {
     id: '04',
@@ -38,6 +41,7 @@ const projects = [
     tags: ['Next.js', 'Django', 'DRF', 'PostgreSQL'],
     image: '/images/doob.png',
     color: '#000000',
+    link: 'https://www.doobapp.com/',
   },
 ]
 
@@ -50,56 +54,64 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       ref={ref}
       data-cursor
       className={clsx(
-        'group relative overflow-hidden bg-dim cursor-none transition-all duration-700 border-x border-b border-white/5',
+        'group relative overflow-hidden bg-dim transition-all duration-700 border-x border-b border-white/5',
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       )}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      {/* Browser Frame Header */}
-      <div className="h-8 bg-subtle/50 border-b border-white/5 flex items-center px-4 gap-1.5">
-        <div className="w-1.5 h-1.5 rounded-full bg-white/10" />
-        <div className="w-1.5 h-1.5 rounded-full bg-white/10" />
-        <div className="w-1.5 h-1.5 rounded-full bg-white/10" />
-      </div>
-
-      {/* Image */}
-      <div className="relative aspect-[16/10] overflow-hidden bg-ink">
-        <Image
-          src={project.image}
-          alt={project.name}
-          fill
-          className="object-cover object-top grayscale brightness-[0.7] group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 scale-100 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-        {/* Number overlay */}
-        <span className="absolute bottom-4 right-6 font-serif text-5xl font-light text-white/5 group-hover:text-white/10 transition-colors select-none">
-          {project.id}
-        </span>
-      </div>
-
-      {/* Info */}
-      <div className="p-7 border-t border-white/5">
-        <div className="flex justify-between items-start mb-3">
-          <h3 className="font-serif text-2xl font-light tracking-tight">{project.name}</h3>
-          <span className="text-ivory/30 group-hover:text-ivory/70 transition-colors text-lg mt-1">↗</span>
+      <a 
+        href={project.link} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="block cursor-none"
+      >
+        {/* Browser Frame Header */}
+        <div className="h-8 bg-subtle/50 border-b border-white/5 flex items-center px-4 gap-1.5">
+          <div className="w-1.5 h-1.5 rounded-full bg-white/10" />
+          <div className="w-1.5 h-1.5 rounded-full bg-white/10" />
+          <div className="w-1.5 h-1.5 rounded-full bg-white/10" />
         </div>
-        <p className="text-ivory/40 text-sm font-light leading-relaxed mb-5 line-clamp-2">
-          {project.description}
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {project.tags.map(tag => (
-            <span
-              key={tag}
-              className="text-[10px] tracking-widest uppercase border border-white/10 px-3 py-1 text-ivory/50"
-            >
-              {tag}
-            </span>
-          ))}
+
+        {/* Image */}
+        <div className="relative aspect-[21/9] overflow-hidden bg-ink">
+          <Image
+            src={project.image}
+            alt={project.name}
+            fill
+            className="object-cover object-top grayscale brightness-[0.7] group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700 scale-100 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          {/* Number overlay */}
+          <span className="absolute bottom-4 right-6 font-serif text-5xl font-light text-white/5 group-hover:text-white/10 transition-colors select-none">
+            {project.id}
+          </span>
         </div>
-      </div>
+
+        {/* Info */}
+        <div className="p-7 border-t border-white/5">
+          <div className="flex justify-between items-start mb-3">
+            <h3 className="font-serif text-2xl font-light tracking-tight">{project.name}</h3>
+            <span className="text-ivory/30 group-hover:text-ivory/70 transition-colors text-lg mt-1">↗</span>
+          </div>
+          <p className="text-ivory/40 text-sm font-light leading-relaxed mb-5 line-clamp-2">
+            {project.description}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {project.tags.map(tag => (
+              <span
+                key={tag}
+                className="text-[10px] tracking-widest uppercase border border-white/10 px-3 py-1 text-ivory/50"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </a>
     </div>
   )
 }
+
 
 export default function Projects() {
   const headerRef = useRef<HTMLDivElement>(null)

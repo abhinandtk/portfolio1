@@ -1,9 +1,18 @@
-'use client'
-
+import { Metadata } from 'next'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Cursor from '@/components/Cursor'
+
+export const metadata: Metadata = {
+  title: 'Selected Works | Abhinand TK',
+  description: 'A showcase of production-ready full-stack applications built with Django, Next.js, and modern web technologies.',
+  openGraph: {
+    title: 'Selected Works | Abhinand TK',
+    description: 'Explore my production-level projects, from healthcare booking platforms to sports management systems.',
+    url: 'https://abhinandtk.com/works',
+  },
+}
 
 const allProjects = [
   {
@@ -18,6 +27,7 @@ const allProjects = [
     ],
     tech: ['Django', 'REST APIs', 'Zoom SDK', 'Stripe', 'Cron Jobs', 'MySQL'],
     image: '/images/healers_on_demand.png',
+    link: 'https://www.healersondemand.com/',
   },
   {
     title: 'Trusted Professional Centre',
@@ -31,6 +41,7 @@ const allProjects = [
     ],
     tech: ['Django', 'Django REST Framework', 'RBAC', 'MySQL', 'REST APIs'],
     image: '/images/trusted.png',
+    link: 'https://trustedprofessionalcentre.ca/',
   },
   {
     title: 'Joystick',
@@ -44,6 +55,7 @@ const allProjects = [
     ],
     tech: ['Django', 'Django REST Framework', 'Authentication', 'RBAC', 'PostgreSQL'],
     image: '/images/joystick.png',
+    link: 'https://www.joysticklearning.co.uk/',
   },
   {
     title: 'Doob',
@@ -58,6 +70,7 @@ const allProjects = [
     ],
     tech: ['Next.js', 'Django', 'DRF', 'PostgreSQL', 'REST APIs'],
     image: '/images/doob.png',
+    link: 'https://www.doobapp.com/',
   },
 ]
 
@@ -81,7 +94,12 @@ export default function ProjectsPage() {
         <div className="space-y-40">
           {allProjects.map((project, index) => (
             <section key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-              <div className="relative overflow-hidden bg-subtle group border border-white/5 shadow-2xl">
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="relative overflow-hidden bg-subtle group border border-white/5 shadow-2xl block"
+              >
                 {/* Browser Header */}
                 <div className="h-7 bg-subtle border-b border-white/5 flex items-center px-4 gap-1.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-white/10" />
@@ -95,11 +113,21 @@ export default function ProjectsPage() {
                     className="object-cover object-top w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000 scale-100 group-hover:scale-105"
                   />
                 </div>
-              </div>
+              </a>
               
               <div className="flex flex-col pt-4">
                 <span className="text-[10px] tracking-[0.3em] uppercase text-ivory/30 mb-4">0{index + 1} / Project</span>
-                <h2 className="font-serif text-4xl md:text-5xl font-light mb-2">{project.title}</h2>
+                <div className="flex justify-between items-start mb-2">
+                  <h2 className="font-serif text-4xl md:text-5xl font-light">{project.title}</h2>
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-ivory/30 hover:text-ivory transition-colors text-2xl"
+                  >
+                    ↗
+                  </a>
+                </div>
                 <h3 className="text-sm tracking-widest uppercase text-ivory/40 mb-8">{project.subtitle}</h3>
                 
                 <p className="text-ivory/60 font-light leading-relaxed mb-8 text-lg">
@@ -115,17 +143,28 @@ export default function ProjectsPage() {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {project.tech.map((t, i) => (
                     <span key={i} className="text-[10px] tracking-widest uppercase border border-white/10 px-3 py-1 text-ivory/50">
                       {t}
                     </span>
                   ))}
                 </div>
+
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-ivory/40 hover:text-ivory transition-colors group"
+                >
+                  Visit Website
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
               </div>
             </section>
           ))}
         </div>
+
 
         <div className="mt-40 pt-20 border-t border-white/5 text-center">
           <p className="text-sm text-ivory/30 mb-8 uppercase tracking-widest">Want to see more?</p>

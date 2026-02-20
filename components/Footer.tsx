@@ -32,7 +32,7 @@ export default function Footer() {
         <div>
           <span className="font-serif text-2xl tracking-widest text-ivory/40">A.TK.</span>
           <p className="text-xs text-ivory/25 font-light mt-3 leading-relaxed max-w-[160px]">
-            Full-Stack Developer. React • Next.js • Django • PostgreSQL • Redis • AI Integration.
+            Full-Stack Developer. React • Next.js • Django • PostgreSQL • Redis
           </p>
         </div>
 
