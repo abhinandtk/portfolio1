@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: 'Abhinand TK Portfolio',
     images: [
       {
-        url: '/images/healers_on_demand.png', // Fallback to a project image as OG image
+        url: '/images/seo_image.png',
         width: 1200,
         height: 630,
         alt: 'Abhinand TK Portfolio',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Abhinand TK | Full-Stack Developer',
     description: 'Building scalable web applications with Django and React.',
-    images: ['/images/healers_on_demand.png'],
+    images: ['/images/seo_image.png'],
     creator: '@abhinandtk',
   },
   robots: {
